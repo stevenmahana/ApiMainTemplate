@@ -10,6 +10,7 @@ import (
 	"log"
 	"fmt"
 	"io"
+	"os"
 )
 
 
@@ -48,8 +49,6 @@ func (uc MainController) Index(resp http.ResponseWriter, req *http.Request, _ ht
 
  */
 func (uc MainController) GetController(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-
-	log.Print("Request to: ", r.URL)
 
 	auth := models.Access()
 	// verify header was set correctly and check for required header elements
@@ -97,11 +96,13 @@ func (uc MainController) GetController(w http.ResponseWriter, r *http.Request, p
 	// Publish message on subject
 	message := string(mp)
 
+	uri := os.Getenv("NATS_URI")
+
 	// Connect to NATS server; defer close
-	natsConnection, _ := nats.Connect(nats.DefaultURL)
+	natsConnection, _ := nats.Connect(uri)
 	defer natsConnection.Close()
 
-	log.Println("Connected to " + nats.DefaultURL)
+	log.Println("Connected to " + uri)
 
 	// Set Response Header
 	w.Header().Set("Content-Type", "application/json")
