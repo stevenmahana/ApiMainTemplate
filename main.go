@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"log"
 	"fmt"
+	"bufio"
+	"os"
 )
 
 /*
@@ -37,5 +39,9 @@ func main() {
 	router.POST("/upload/:object/:uuid", ctlr.UploadController)
 
 	fmt.Print("Server is running on http://localhost:8080")
+	log.Print("Server is running on http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", router))
+
+
+
 }

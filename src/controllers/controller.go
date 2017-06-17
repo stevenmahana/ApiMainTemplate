@@ -114,8 +114,6 @@ func (uc MainController) GetController(w http.ResponseWriter, r *http.Request, p
 		return
 	}
 
-	//fmt.Println(string(msg.Data))
-
 	// Set HTTP Response Method
 	w.WriteHeader(http.StatusOK)
 
