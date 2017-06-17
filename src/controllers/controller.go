@@ -49,6 +49,8 @@ func (uc MainController) Index(resp http.ResponseWriter, req *http.Request, _ ht
  */
 func (uc MainController) GetController(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 
+	log.Print("Request to: ", r.URL)
+
 	auth := models.Access()
 	// verify header was set correctly and check for required header elements
 	if auth.VerifyHeader(r.Header) == false {

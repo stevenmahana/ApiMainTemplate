@@ -36,7 +36,6 @@ func main() {
 	// file or binary upload. requires POST method and object, object uuid
 	router.POST("/upload/:object/:uuid", ctlr.UploadController)
 
-	fmt.Print("Server is running on http://localhost:8080")
 	log.Print("Server is running on http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", router))
 
