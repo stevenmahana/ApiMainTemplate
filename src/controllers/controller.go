@@ -206,11 +206,13 @@ func (uc MainController) UploadController(w http.ResponseWriter, r *http.Request
 	// Publish message on subject
 	message := string(mp)
 
+	uri := os.Getenv("NATS_URI")
+
 	// Connect to NATS server; defer close
-	natsConnection, _ := nats.Connect(nats.DefaultURL)
+	natsConnection, _ := nats.Connect(uri)
 	defer natsConnection.Close()
 
-	log.Println("Connected to " + nats.DefaultURL)
+	log.Println("Connected to " + uri)
 
 	// Set Response Header
 	w.Header().Set("Content-Type", "application/json")
@@ -318,11 +320,13 @@ func (uc MainController) CreateController(w http.ResponseWriter, r *http.Request
 	// Publish message on subject
 	message := string(mp)
 
+	uri := os.Getenv("NATS_URI")
+
 	// Connect to NATS server; defer close
-	natsConnection, _ := nats.Connect(nats.DefaultURL)
+	natsConnection, _ := nats.Connect(uri)
 	defer natsConnection.Close()
 
-	log.Println("Connected to " + nats.DefaultURL)
+	log.Println("Connected to " + uri)
 
 	// Set Response Header
 	w.Header().Set("Content-Type", "application/json")
@@ -430,11 +434,13 @@ func (uc MainController) UpdateController(w http.ResponseWriter, r *http.Request
 	// Publish message on subject
 	message := string(mp)
 
+	uri := os.Getenv("NATS_URI")
+
 	// Connect to NATS server; defer close
-	natsConnection, _ := nats.Connect(nats.DefaultURL)
+	natsConnection, _ := nats.Connect(uri)
 	defer natsConnection.Close()
 
-	log.Println("Connected to " + nats.DefaultURL)
+	log.Println("Connected to " + uri)
 
 	// Set Response Header
 	w.Header().Set("Content-Type", "application/json")
@@ -518,11 +524,13 @@ func (uc MainController) RemoveController(w http.ResponseWriter, r *http.Request
 	// Publish message on subject
 	message := string(mp)
 
+	uri := os.Getenv("NATS_URI")
+
 	// Connect to NATS server; defer close
-	natsConnection, _ := nats.Connect(nats.DefaultURL)
+	natsConnection, _ := nats.Connect(uri)
 	defer natsConnection.Close()
 
-	log.Println("Connected to " + nats.DefaultURL)
+	log.Println("Connected to " + uri)
 
 	// Set Response Header
 	w.Header().Set("Content-Type", "application/json")
