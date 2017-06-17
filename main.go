@@ -6,8 +6,6 @@ import (
 	"net/http"
 	"log"
 	"fmt"
-	"bufio"
-	"os"
 )
 
 /*
