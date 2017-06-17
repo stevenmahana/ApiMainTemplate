@@ -5,7 +5,6 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"net/http"
 	"log"
-	"fmt"
 )
 
 /*
